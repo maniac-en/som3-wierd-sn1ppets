@@ -1,4 +1,4 @@
-# some-sn1ppets
+# som3-wierd-sn1ppets
 
 ## Note
 - Some of these snippets are gonna very specific use-cases, so please mind the rant!
