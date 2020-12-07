@@ -4,12 +4,16 @@
 - Some of these snippets are gonna very specific use-cases, so please mind the rant!
 - If you have any suggestions, please let me know! I'll add them `probably`
 - If you have a use-case but you are still facing issues, you can DM me on [twitter](https://twitter.com/maniac_en)
-
-## v0.1
+- We are not responsible for kernel crashes, dead OSs, thermonuclear war, or you getting fired because the alarm app failed. Some scripts run on root level, give them a good read before using. 
+- Contributors:  
+  - Maniac_en ([twitter](https://twitter.com/maniac_en)) 
+  - MrHolmes ([twitter](https://twitter.com/__MrHolmes)) 
+## v0.15
 
 ## Index
 1. [Transferring big file](#1-transferring-big-file)
-2. [Downloading all busybox binaries](#2-Downloading-all-busybox-binaries)
+2. [Downloading all busybox binaries](#2-downloading-all-busybox-binaries)
+3. [Switching CPU governor](#3-switching-CPU-Governor)
 
 #### 1. Transferring big file
   ##### when to use this?
@@ -45,4 +49,21 @@
   sudo apt install -y rename; mkdir bins && cd bins; \
     wget -r -e robots=off -nH --cut-dirs=3 --no-parent --accept-regex='busybox_' -R html,tmp,txt https://busybox.net/downloads/binaries/1.31.0-i686-uclibc/ ; \
     rename 's/busybox_//;y/A-Z/a-z/' *; chmod +x *
+  ```
+#### 3. Switching CPU Governor
+       (This is technically safest overclocking you can do)
+  ##### when to use this?
+  - All Intel CPUs support inbuilt governor profiles, in this case we are switching the governor to Profile called Performance, it is built in and will push the CPU frequency to maximum supported by system. No CPU damage, as the profile is system created. 
+  ##### snippet: For performance
+  ```sh
+  sudo bash -c 'for i in $(ls /sys/devices/system/cpu/ | grep cpu[0-9]); \
+  do echo performance > /sys/devices/system/cpu/$i/cpufreq/scaling_governor; \
+  done'
+  ```
+  (This will obviously drain the battery faster, so recommended to try when plugged in.)
+  ##### snippet: For powersave
+  ```sh
+  sudo bash -c 'for i in $(ls /sys/devices/system/cpu/ | grep cpu[0-9]); \
+  do echo powersave > /sys/devices/system/cpu/$i/cpufreq/scaling_governor; \
+  done'
   ```
