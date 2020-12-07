@@ -6,9 +6,9 @@
 - If you have a use-case but you are still facing issues, you can DM me on [twitter](https://twitter.com/maniac_en)
 - We are not responsible for kernel crashes, dead OSs, thermonuclear war, or you getting fired because the alarm app failed. Some scripts run on root level, give them a good read before using. 
 - Contributors:  
-  - Maniac_en ([twitter](https://twitter.com/maniac_en)) 
-  - MrHolmes ([twitter](https://twitter.com/__MrHolmes)) 
-## v0.15
+  - Maniac_en ([profile](https://github.com/maniac-en)) 
+  - MrHolmes ([profile](https://github.com/holmes-py)) 
+## v0.2
 
 ## Index
 1. [Transferring big file](#1-transferring-big-file)
